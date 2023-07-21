@@ -162,6 +162,133 @@
             transition: left 0.1s;
             left: 58px;
         }
+
+        .for-box {
+            background-color: #3d261c;
+            overflow: hidden;
+            padding: 100px 0;
+        }
+
+        .container {
+            max-width: 1440px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        .box_wrap {
+            display: flex;
+            overflow: visible;
+        }
+
+        .box_wrap .box {
+            width: 350px;
+            margin: 0 5px;
+            background-color: #fff;
+            flex-shrink: 0;
+            height: 350px;
+            text-align: center;
+            font-size: 60px;
+            font-weight: 700;
+            line-height: 400px;
+            border-radius: 15px;
+            overflow: hidden;
+        }
+
+        .box_wrap .box img {
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+
+        .navigate_word {
+            text-align: center;
+            font-size: 70px;
+            padding: 10rem 1rem 25rem;
+            background-color: #d0c3ba;
+        }
+
+        .navigate_word_wrap.scroll_item_active {
+            position: sticky;
+            top: 0;
+        }
+
+        .circle_rotate {
+            z-index: 1;
+            position: relative;
+            background-color: #3d261c;
+            padding: 10rem 0;
+            overflow: hidden;
+        }
+
+        .circle_content {
+            position: relative;
+            text-align: center;
+        }
+
+        .circle_img1_wrap {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            width: 80%;
+        }
+
+        .circle_des {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 22px;
+            color: #fff;
+            width: 45%;
+            line-height: 1.5;
+            display: flex;
+            align-items: center;
+            text-align: left;
+        }
+
+        .circle_des .description {
+            flex: 1;
+        }
+
+        .i_in_four {
+            margin-right: 30px;
+            text-align: left;
+        }
+
+        .i_in_four img {
+            max-width: 170px;
+        }
+
+        .circle_img.circle_img2 {
+            width: 100%;
+        }
+
+        .two_colum_box {
+            position: relative;
+            background-color: #d0c3ba;
+            padding: 8rem 0;
+        }
+
+        .colum_wrap {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .colum_wrap .box {
+            width: 50%;
+        }
+
+        .two_colum_box .description {
+            padding-left: 5rem;
+            font-size: 20px;
+            width: 50%;
+        }
+
+        .two_colum_box .description p {
+            margin-bottom: 20px;
+        }
     </style>
 </head>
 
@@ -182,11 +309,68 @@
             <p>Learn about our decisions that have contributed to massive success for the last six decades.</p>
         </div>
     </div>
+    <div class="for-box">
+        <div class="container">
+            <div class="box_wrap">
+                <div class="box"><img src="Stocksy_1.webp" alt="img" /></div>
+                <div class="box"><img src="Stocksy_2.webp" alt="img" /></div>
+                <div class="box"><img src="Stocksy_3.webp" alt="img" /></div>
+                <div class="box"><img src="Stocksy_1.webp" alt="img" /></div>
+                <div class="box"><img src="Stocksy_2.webp" alt="img" /></div>
+            </div>
+        </div>
+    </div>
+    <div class="navigate_word_wrap">
+        <div class="navigate_word">
+            <div class="container">
+                <h2>To navigate this new world of work, we need a new kind of inclusive leadership.</h2>
+            </div>
+        </div>
+    </div>
+    <div class="banner-wrap">
+        <div class="img1"> <img src="img-1.png" alt="img" /></div>
+        <img src="Stocksy_3.webp" class="img2" alt="img" />
+        
+    </div>
+    <div class="circle_rotate">
+        <div class="container">
+            <div class="circle_content">
+                <div class="circle_img1_wrap"> <img src="inner-circle.svg" class="circle_img circle_img1"
+                        alt="circle" /></div>
+                <img src="inner-circle.svg" class="circle_img circle_img2" alt="circle" />
+                <div class="circle_des">
+                    <div class="i_in_four">
+                        <img src="1-in-4.svg">
+                    </div>
+                    <div class="description">One in four employees still don’t feel a sense of belonging. Retaining
+                        talent and driving peak
+                        performance has never been more difficult. How, when, and where we work is still evolving.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="two_colum_box">
+        <div class="container">
+            <div class="colum_wrap">
+                <div class="box"><img src="Stocksy_1.webp" alt="img" /></div>
+                <div class="description">
+                    <p> Since the start of the pandemic, we’ve tracked over 10,000 BetterUp Members engaged in our 1:1
+                        personalized coaching.</p>
+
+                    <p>These members represent a cross-section of the workforce and provide a window into the unique
+                        differences,
+                        challenges, and needs of populations impacted by the pandemic.</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
     <script>
         var btn = document.querySelector('.clic-toggle label');
         var inputcheck = document.getElementById('checkbox');
         var currentDive = document.getElementsByClassName('banner-wrap')[0];
- //On load hero banner animation
+        //On load hero banner animation
         window.onload = function () {
             setTimeout(() => {
                 currentDive.classList.add('onload_blur');
@@ -207,6 +391,43 @@
             }
 
         });
+        window.onscroll = function () {
+
+            var theta = window.pageYOffset / 15;
+
+            var evenDivImages = document.querySelectorAll(".circle_img1");
+            evenDivImages.forEach(function (img) {
+                img.style.transform = "rotateZ(" + theta + "deg)";
+            });
+
+            var evenDivImages1 = document.querySelectorAll(".circle_img2");
+            evenDivImages1.forEach(function (img) {
+                img.style.transform = "rotateZ(-" + theta + "deg)";
+            });
+
+            var bodyScrollTop = document.body.scrollTop || document.documentElement.scrollTop;
+            // var windowHeight = window.innerHeight;
+            var navigateWordWrap = document.querySelector('.navigate_word_wrap');
+
+            var sectionTop = navigateWordWrap.getBoundingClientRect().top;
+            var sectionHeight = navigateWordWrap.offsetHeight;
+            var section70Percent = sectionTop + sectionHeight * 0.7; // 70% of the element's height
+
+            if (bodyScrollTop > section70Percent) {
+                navigateWordWrap.classList.add('scroll_item_active');
+            } else {
+                navigateWordWrap.classList.remove('scroll_item_active');
+            }
+
+
+
+
+        };
+
+
+
+
+
 
     </script>
 </body>
